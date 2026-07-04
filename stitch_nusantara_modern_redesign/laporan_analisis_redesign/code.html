@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+
+<html class="light" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&amp;family=Public+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#474744",
+                    "tertiary-fixed": "#e4e2de",
+                    "on-primary-fixed": "#2e1413",
+                    "tertiary-container": "#343432",
+                    "surface": "#fff8f5",
+                    "on-error": "#ffffff",
+                    "surface-tint": "#795553",
+                    "inverse-surface": "#34302c",
+                    "secondary": "#775a19",
+                    "background": "#fff8f5",
+                    "on-tertiary": "#ffffff",
+                    "outline-variant": "#d4c3c1",
+                    "inverse-on-surface": "#f8efea",
+                    "primary-container": "#4a2c2a",
+                    "inverse-primary": "#eabcb8",
+                    "tertiary": "#1e1f1d",
+                    "secondary-fixed": "#ffdea5",
+                    "surface-container": "#f5ece7",
+                    "surface-dim": "#e1d8d4",
+                    "surface-container-low": "#fbf2ed",
+                    "on-surface": "#1e1b18",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed": "#1b1c1a",
+                    "primary-fixed-dim": "#eabcb8",
+                    "error": "#ba1a1a",
+                    "secondary-container": "#fed488",
+                    "on-primary-fixed-variant": "#5f3e3c",
+                    "on-secondary-fixed": "#261900",
+                    "on-secondary-fixed-variant": "#5d4201",
+                    "surface-variant": "#e9e1dc",
+                    "on-tertiary-container": "#9d9c99",
+                    "outline": "#827472",
+                    "surface-container-high": "#efe6e2",
+                    "surface-bright": "#fff8f5",
+                    "secondary-fixed-dim": "#e9c176",
+                    "on-background": "#1e1b18",
+                    "on-error-container": "#93000a",
+                    "on-primary-container": "#bd928f",
+                    "primary-fixed": "#ffdad7",
+                    "on-secondary-container": "#785a1a",
+                    "error-container": "#ffdad6",
+                    "on-surface-variant": "#504443",
+                    "primary": "#321716",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#c8c6c3",
+                    "surface-container-highest": "#e9e1dc",
+                    "surface-container-lowest": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "unit": "8px",
+                    "gutter": "24px",
+                    "margin-tablet": "32px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "body-md": ["Public Sans"],
+                    "headline-lg": ["EB Garamond"],
+                    "headline-sm": ["EB Garamond"],
+                    "headline-md": ["EB Garamond"],
+                    "body-sm": ["Public Sans"],
+                    "display-lg": ["EB Garamond"],
+                    "label-md": ["Public Sans"],
+                    "headline-lg-mobile": ["EB Garamond"],
+                    "body-lg": ["Public Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fff8f5;
+            background-image: radial-gradient(#4a2c2a 0.5px, transparent 0.5px);
+            background-size: 32px 32px;
+            background-attachment: fixed;
+            opacity: 1;
+        }
+        .batik-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l15 30-15 30L15 30z' fill='%23321716' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: -1;
+        }
+        .soft-plinth {
+            box-shadow: 0 4px 6px -1px rgba(74, 44, 42, 0.1), 0 2px 4px -1px rgba(74, 44, 42, 0.06);
+            border: 1px solid rgba(74, 44, 42, 0.1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface overflow-x-hidden">
+<div class="batik-overlay"></div>
+<!-- SideNavBar -->
+<aside class="bg-primary h-screen w-64 fixed left-0 top-0 overflow-y-auto shadow-xl border-r border-primary-fixed-variant/10 z-50 flex flex-col py-6 px-4">
+<div class="mb-10 px-4">
+<h1 class="font-headline-md text-headline-md font-bold text-secondary-fixed">Humas Hub</h1>
+<p class="text-on-primary-fixed-variant text-body-sm opacity-80">Portal Humas Institusi</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-4 text-on-primary-fixed-variant hover:text-secondary-fixed px-4 py-3 transition-all hover:bg-primary-container/50 hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-headline-sm text-headline-sm font-semibold">Beranda</span>
+</a>
+<a class="flex items-center gap-4 text-on-primary-fixed-variant hover:text-secondary-fixed px-4 py-3 transition-all hover:bg-primary-container/50 hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">archive</span>
+<span class="font-headline-sm text-headline-sm font-semibold">Arsip Kliping</span>
+</a>
+<a class="flex items-center gap-4 text-on-primary-fixed-variant hover:text-secondary-fixed px-4 py-3 transition-all hover:bg-primary-container/50 hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">newspaper</span>
+<span class="font-headline-sm text-headline-sm font-semibold">Manajemen Media</span>
+</a>
+<a class="flex items-center gap-4 bg-primary-container text-secondary-fixed rounded-xl px-4 py-3 border-l-4 border-secondary transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-headline-sm text-headline-sm font-semibold">Laporan Tahunan</span>
+</a>
+<a class="flex items-center gap-4 text-on-primary-fixed-variant hover:text-secondary-fixed px-4 py-3 transition-all hover:bg-primary-container/50 hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-headline-sm text-headline-sm font-semibold">Pengaturan Sistem</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-primary-fixed-variant/20 space-y-2">
+<button class="w-full bg-secondary-container text-on-secondary-container rounded-xl py-3 px-4 font-bold flex items-center justify-center gap-2 mb-4 hover:scale-95 transition-transform">
+<span class="material-symbols-outlined">add</span>
+                Tambah Kliping
+            </button>
+<a class="flex items-center gap-4 text-on-primary-fixed-variant hover:text-secondary-fixed px-4 py-2 transition-all" href="#">
+<span class="material-symbols-outlined">help</span>
+<span class="text-body-sm">Bantuan</span>
+</a>
+<a class="flex items-center gap-4 text-on-primary-fixed-variant hover:text-secondary-fixed px-4 py-2 transition-all" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-body-sm">Keluar</span>
+</a>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="bg-surface/90 backdrop-blur-md fixed top-0 right-0 w-[calc(100%-16rem)] z-40 border-b border-outline-variant/30 shadow-sm h-20">
+<div class="flex justify-between items-center px-gutter h-full max-w-container-max mx-auto">
+<div class="flex items-center gap-8">
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary">Laporan &amp; Analisis</h2>
+<nav class="hidden md:flex gap-6">
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="#">Dashboard</a>
+<a class="text-primary font-bold border-b-2 border-secondary pb-1" href="#">Analytics</a>
+<a class="text-on-surface-variant font-medium hover:text-secondary transition-colors" href="#">Reports</a>
+</nav>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container rounded-full border-none focus:ring-2 focus:ring-secondary w-64 text-body-sm" placeholder="Cari laporan..." type="text"/>
+</div>
+<div class="flex items-center gap-3">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-xl font-bold text-body-sm flex items-center gap-2 hover:opacity-80 transition-opacity">
+                        Unduh Laporan
+                        <span class="material-symbols-outlined text-sm">download</span>
+</button>
+<img alt="Administrator Profile" class="w-10 h-10 rounded-full border-2 border-secondary shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5zU4mfwru5TZZxxZAT59-txAZs8IVKOMnOo9hJBeVMYpINqNNTOHMfq7adl2IT-gIkHmPFzMO86Rl2gM-EPAFVRBOtDHKY1uSKTP-GwTiOkcOqWER9xtn9WHB7wbQ8aq1-bdEGsLdxFlGwyoU6yYsLeaNsh0wZL6-dASBMBAWZtw3j-cvW4s8Djg4JIyBsy5PJi2i9B9gw2xpP4qwZ1tXyAUTo91NA1G_6zS6DoXfcehfOERySZk11iSYHSsVzL4poUWaX7aieN0"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 pt-24 pb-12 px-gutter min-h-screen">
+<div class="max-w-container-max mx-auto">
+<!-- Header Section -->
+<div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h3 class="font-headline-lg text-headline-lg text-primary mb-2">Analisis Kliping Media</h3>
+<p class="text-on-surface-variant max-w-2xl font-body-md">Pantau performa publikasi institusi melalui visualisasi data komprehensif dari berbagai kanal media cetak dan digital.</p>
+</div>
+<div class="flex bg-surface-container-high p-1 rounded-xl soft-plinth">
+<button class="px-4 py-2 rounded-lg bg-white text-primary font-bold text-body-sm shadow-sm">Bulanan</button>
+<button class="px-4 py-2 rounded-lg text-on-surface-variant font-medium text-body-sm hover:text-primary">Tahunan</button>
+<button class="px-4 py-2 rounded-lg text-on-surface-variant font-medium text-body-sm hover:text-primary">Custom</button>
+</div>
+</div>
+<!-- Stats Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+<div class="bg-white p-6 rounded-xl soft-plinth border-t-4 border-primary">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary bg-primary-fixed p-2 rounded-lg">article</span>
+<span class="text-green-700 bg-green-100 px-2 py-1 rounded text-xs font-bold">+12%</span>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-1">Total Kliping</p>
+<h4 class="text-headline-md font-bold text-primary">1,284</h4>
+</div>
+<div class="bg-white p-6 rounded-xl soft-plinth border-t-4 border-secondary">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary bg-secondary-fixed p-2 rounded-lg">public</span>
+<span class="text-green-700 bg-green-100 px-2 py-1 rounded text-xs font-bold">+5%</span>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-1">Media Nasional</p>
+<h4 class="text-headline-md font-bold text-primary">452</h4>
+</div>
+<div class="bg-white p-6 rounded-xl soft-plinth border-t-4 border-on-tertiary-container">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-tertiary-container bg-tertiary-fixed p-2 rounded-lg">thumb_up</span>
+<span class="text-green-700 bg-green-100 px-2 py-1 rounded text-xs font-bold">+24%</span>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-1">Sentimen Positif</p>
+<h4 class="text-headline-md font-bold text-primary">82%</h4>
+</div>
+<div class="bg-white p-6 rounded-xl soft-plinth border-t-4 border-error">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-error bg-error-container p-2 rounded-lg">warning</span>
+<span class="text-red-700 bg-red-100 px-2 py-1 rounded text-xs font-bold">-2%</span>
+</div>
+<p class="text-body-sm text-on-surface-variant mb-1">Krisis Terdeteksi</p>
+<h4 class="text-headline-md font-bold text-primary">3</h4>
+</div>
+</div>
+<!-- Main Charts Row -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+<!-- Line Chart: Monthly Growth -->
+<div class="lg:col-span-2 bg-white p-8 rounded-xl soft-plinth relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-primary-container"></div>
+<div class="flex justify-between items-center mb-8">
+<h5 class="font-headline-sm text-primary font-bold">Tren Pertumbuhan Bulanan</h5>
+<button class="material-symbols-outlined text-on-surface-variant">more_vert</button>
+</div>
+<div class="h-64 flex items-end justify-between gap-4 px-2">
+<!-- Simulated Chart -->
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-primary-fixed-dim/20 rounded-t-lg h-[40%] transition-all group-hover:bg-primary-container relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-primary text-white text-[10px] px-2 py-1 rounded">120</div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">JAN</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-primary-fixed-dim/20 rounded-t-lg h-[55%] transition-all group-hover:bg-primary-container relative"></div>
+<span class="text-[10px] font-bold text-on-surface-variant">FEB</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-primary-fixed-dim/20 rounded-t-lg h-[45%] transition-all group-hover:bg-primary-container relative"></div>
+<span class="text-[10px] font-bold text-on-surface-variant">MAR</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-primary-fixed-dim/20 rounded-t-lg h-[75%] transition-all group-hover:bg-primary-container relative"></div>
+<span class="text-[10px] font-bold text-on-surface-variant">APR</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-primary-fixed-dim/20 rounded-t-lg h-[60%] transition-all group-hover:bg-primary-container relative"></div>
+<span class="text-[10px] font-bold text-on-surface-variant">MEI</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-primary-container rounded-t-lg h-[90%] relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-primary text-white text-[10px] px-2 py-1 rounded">240</div>
+</div>
+<span class="text-[10px] font-bold text-primary font-bold">JUN</span>
+</div>
+</div>
+</div>
+<!-- Pie Chart: Media Distribution -->
+<div class="bg-white p-8 rounded-xl soft-plinth relative">
+<h5 class="font-headline-sm text-primary font-bold mb-8 text-center">Distribusi Media</h5>
+<div class="relative w-48 h-48 mx-auto mb-8">
+<!-- Simulated Donut Chart -->
+<div class="w-full h-full rounded-full border-[20px] border-primary flex items-center justify-center">
+<div class="text-center">
+<span class="block text-headline-md font-bold text-primary">64%</span>
+<span class="text-[10px] text-on-surface-variant uppercase tracking-widest font-bold">Digital</span>
+</div>
+</div>
+<div class="absolute top-0 left-0 w-full h-full border-[20px] border-secondary border-t-transparent border-r-transparent border-b-transparent rounded-full rotate-45"></div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center text-body-sm">
+<div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-primary"></span> Media Online</div>
+<span class="font-bold">642</span>
+</div>
+<div class="flex justify-between items-center text-body-sm">
+<div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-secondary"></span> Media Cetak</div>
+<span class="font-bold">321</span>
+</div>
+<div class="flex justify-between items-center text-body-sm">
+<div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-tertiary-fixed-dim"></span> Televisi/Radio</div>
+<span class="font-bold">144</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<!-- Bar Chart: Category Distribution -->
+<div class="bg-white p-8 rounded-xl soft-plinth">
+<h5 class="font-headline-sm text-primary font-bold mb-6">Distribusi Kategori Berita</h5>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between text-body-sm mb-2">
+<span class="font-medium">Pendidikan &amp; Kurikulum</span>
+<span class="font-bold">45%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 45%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm mb-2">
+<span class="font-medium">Prestasi Mahasiswa</span>
+<span class="font-bold">30%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 30%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm mb-2">
+<span class="font-medium">Inovasi &amp; Riset</span>
+<span class="font-bold">15%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-on-tertiary-container" style="width: 15%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between text-body-sm mb-2">
+<span class="font-medium">Pengabdian Masyarakat</span>
+<span class="font-bold">10%</span>
+</div>
+<div class="w-full h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-outline" style="width: 10%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Official Releases -->
+<div class="bg-white p-8 rounded-xl soft-plinth relative overflow-hidden">
+<div class="absolute -right-12 -bottom-12 opacity-5 pointer-events-none">
+<span class="material-symbols-outlined text-[180px] text-primary">verified_user</span>
+</div>
+<h5 class="font-headline-sm text-primary font-bold mb-6">Rilis Resmi Terbaru</h5>
+<div class="space-y-4">
+<div class="p-4 rounded-xl border border-outline-variant/30 hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="flex gap-4">
+<img class="w-16 h-16 rounded-lg object-cover" data-alt="A cinematic, high-key shot of a prestigious university building facade with classical Indonesian architectural elements, bathed in warm sunset lighting. The image captures an atmosphere of academic excellence and institutional heritage, using a rich palette of mahogany and soft gold tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5cGLcVFyX5LyzudjxZcmx9HVdSBwuV1xCLgqt5o0uZ94mxkYODRhciTn2Q2dw5pZry7SA8mTJuxQTtrbzW3uFFIDzqYAqUvKdVM6EyvaMLpJEl-rOri3WmokyHRZQWRIOD81LSq0gLNTSnvMpC2gtLsZWGnQya298w8OTBjiaZw9acp9sbM6lu09FiDsoQba7wcEFL-jTW6hLhRrf0RxVjwWvZ_nf6fh_oaxXBIN-QU-aVamZHn3Xdvtyt9BplXNLJ5bDA3yvGGs"/>
+<div>
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Akademik</span>
+<h6 class="text-body-md font-bold text-primary group-hover:text-secondary transition-colors">Penerimaan Mahasiswa Baru Gelombang II</h6>
+<p class="text-[12px] text-on-surface-variant">24 Jun 2024 • Humas Pusat</p>
+</div>
+</div>
+</div>
+<div class="p-4 rounded-xl border border-outline-variant/30 hover:bg-surface-container transition-colors group cursor-pointer">
+<div class="flex gap-4">
+<img class="w-16 h-16 rounded-lg object-cover" data-alt="A clean, professional photograph of a high-tech university research laboratory where scientists are working with advanced equipment. The lighting is crisp and bright, reflecting a modern light-mode interface. The color scheme is dominated by white and deep brown accents, evoking a sense of innovative precision and institutional stability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArjznIx4Jq9VHaBkKMi4TnsZqaR2OX48XoDOzzY5RlBeVUc4XNuQZzkAxmE9cnhekvfcNWnafl7Z7mvbigW49vGfScSydTvlBKNH5qncUvHR6aIZHztrHjM7wet2N01e1fej3GsG0Ahuzy7RBi9pjzM7F49RvJmVKyQpOMxAXawA74dp75mNgU_ZThiTmbAhXJEtdLidit8meYfrgCrCkiv4LxJCZdgQB2y8qcWo4j4sQ3ubbc6w13zvysKZivZ0ymaB9Y4AQlT_Q"/>
+<div>
+<span class="text-[10px] font-bold text-secondary uppercase tracking-widest">Riset</span>
+<h6 class="text-body-md font-bold text-primary group-hover:text-secondary transition-colors">Inovasi Panel Surya Berbasis Bambu</h6>
+<p class="text-[12px] text-on-surface-variant">21 Jun 2024 • Tim Riset Energi</p>
+</div>
+</div>
+</div>
+</div>
+<button class="mt-6 w-full text-center text-body-sm font-bold text-secondary hover:underline">Lihat Semua Rilis →</button>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB (Suppressed on analytics pages as per instructions, but adding if dashboard context allows) -->
+<!-- Suppressed: Settings/Details/Transaction focus -->
+</body></html>
